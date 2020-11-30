@@ -1,0 +1,24 @@
+<form #postForm="ngForm" (ngSubmit)="onCreatePost(postForm.value)">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text"
+           class="form-control"
+           placeholder="Enter title"
+           name="title"
+           ngModel=""
+           id="title"
+    />
+  </div>
+  <div class="form-group">
+    <label for="content">Content</label>
+    <textarea
+      class="form-control"
+      id="content"
+      rows="3"
+      name="content"
+      ngModel=""
+    >
+    </textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Send PostModel</button>
+</form>

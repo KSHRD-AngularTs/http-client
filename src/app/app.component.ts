@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {UserService} from './services/user.service';
+import {User} from './interfaces/user';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'http-client-demo';
+
+  users: User[] = [];
+
+  constructor(private userService: UserService) {
+    this.userService.getUsers()
+      .subscribe((users) => {
+        this.users = users;
+      });
+  }
+
 }
